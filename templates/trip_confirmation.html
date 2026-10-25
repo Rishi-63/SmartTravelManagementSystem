@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Trip Created | Wanderly{% endblock %}
+
+{% block content %}
+
+<section class="confirmation-container">
+    <div class="confirmation-card">
+
+        <div class="confirmation-icon">✓</div>
+
+        <h1>Your Trip Is Planned!</h1>
+
+        <p class="confirmation-message">
+            Your trip details have been saved successfully.
+        </p>
+
+        <div class="trip-summary">
+
+            <h2>Trip Summary</h2>
+
+            <p>
+                <strong>Destination:</strong>
+                {{ trip.destination }}
+            </p>
+
+            <p>
+                <strong>Start Date:</strong>
+                {{ trip.start_date }}
+            </p>
+
+            <p>
+                <strong>End Date:</strong>
+                {{ trip.end_date }}
+            </p>
+
+            <p>
+                <strong>Budget:</strong>
+                ₹{{ "%.2f"|format(trip.budget) }}
+            </p>
+
+            <p>
+                <strong>Interests:</strong>
+                {{ trip.interests }}
+            </p>
+
+            <p>
+                <strong>Trip ID:</strong>
+                {{ trip.id }}
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('planner') }}" class="btn-primary">
+            Plan Another Trip
+        </a>
+
+        <a href="{{ url_for('home') }}" class="btn-secondary">
+            Back to Home
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

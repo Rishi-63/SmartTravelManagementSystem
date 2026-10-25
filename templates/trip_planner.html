@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Plan Your Trip | Wanderly{% endblock %}
+
+{% block content %}
+<section class="planner-page">
+    <div class="planner-heading">
+        <span class="section-kicker">YOUR NEXT ADVENTURE</span>
+        <h1>Let's plan something <em>beautiful.</em></h1>
+        <p>Tell us what you love, and let's build a journey around you.</p>
+    </div>
+
+    <div class="planner-layout">
+        <form class="planner-form" action="{{ url_for('create_trip') }}" method="POST">
+            <div class="form-section-heading">
+                <span class="step-number">01</span>
+                <div>
+                    <h2>Your destination</h2>
+                    <p>Every great journey starts somewhere.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Where do you want to go?</label>
+                <input type="text" id="destination" name="destination"
+                       placeholder="e.g. Manali, Goa, Jaipur" required maxlength="100">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="start_date">Departure date</label>
+                    <input type="date" id="start_date" name="start_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="end_date">Return date</label>
+                    <input type="date" id="end_date" name="end_date" required>
+                </div>
+            </div>
+
+            <div class="form-section-heading section-spaced">
+                <span class="step-number">02</span>
+                <div>
+                    <h2>Your travel style</h2>
+                    <p>We'll use your preferences to suggest activities.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Total trip budget (₹)</label>
+                <input type="number" id="budget" name="budget"
+                       placeholder="e.g. 15000" min="1" max="100000000" step="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>What are you interested in?</label>
+                <div class="interest-grid">
+                    <label class="interest-option">
+                        <input type="checkbox" name="interests" value="nature">
+                        <span>🌿 Nature</span>
+                    </label>
+                    <label class="interest-option">
+                        <input type="checkbox" name="interests" value="adventure">
+                        <span>⛰️ Adventure</span>
+                    </label>
+                    <label class="interest-option">
+                        <input type="checkbox" name="interests" value="culture">
+                        <span>🏛️ Culture</span>
+                    </label>
+                    <label class="interest-option">
+                        <input type="checkbox" name="interests" value="food">
+                        <span>🍜 Food</span>
+                    </label>
+                    <label class="interest-option">
+                        <input type="checkbox" name="interests" value="sightseeing">
+                        <span>📸 Sightseeing</span>
+                    </label>
+                    <label class="interest-option">
+                        <input type="checkbox" name="interests" value="relaxation">
+                        <span>🌊 Relaxation</span>
+                    </label>
+                </div>
+                <small class="field-hint">Choose one or more interests.</small>
+            </div>
+
+            <button type="submit" class="primary-button planner-submit">
+                Create my itinerary <span>→</span>
+            </button>
+        </form>
+
+        <aside class="planner-aside">
+            <div class="aside-art">
+                <span class="aside-kicker">A LITTLE INSPIRATION</span>
+                <div class="aside-quote">The world is<br>waiting for you.</div>
+                <p>Make room for the places, people, and moments you'll remember.</p>
+            </div>
+
+            <div class="aside-tip">
+                <span>✦</span>
+                <div>
+                    <strong>A trip that feels like you</strong>
+                    <p>Your interests help us suggest activities for your itinerary.</p>
+                </div>
+            </div>
+
+            <div class="aside-tip">
+                <span>₹</span>
+                <div>
+                    <strong>Travel within your budget</strong>
+                    <p>Set your estimated budget before planning your activities.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<script>
+    const startDate = document.getElementById("start_date");
+    const endDate = document.getElementById("end_date");
+
+    const today = new Date();
+    const localToday = new Date(
+        today.getTime() - today.getTimezoneOffset() * 60000
+    ).toISOString().split("T")[0];
+
+    startDate.min = localToday;
+    endDate.min = localToday;
+
+    startDate.addEventListener("change", () => {
+        endDate.min = startDate.value || localToday;
+
+        if (endDate.value && endDate.value < startDate.value) {
+            endDate.value = "";
+        }
+    });
+</script>
+{% endblock %}

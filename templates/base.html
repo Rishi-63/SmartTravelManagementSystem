@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Wanderly | Smart Travel{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="brand">
+            <span class="brand-icon">✳</span> wanderly<span class="brand-dot">.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('planner') }}">Plan a Trip</a>
+            <a href="{{ url_for('services') }}">Explore Stays</a>
+            <a href="{{ url_for('bookings') }}">My Bookings</a>
+        </div>
+
+        <a href="{{ url_for('planner') }}" class="nav-button">
+            Plan your trip <span>↗</span>
+        </a>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <a href="{{ url_for('home') }}" class="brand">
+            <span class="brand-icon">✳</span> wanderly<span class="brand-dot">.</span>
+        </a>
+        <p>Made for the journeys that stay with you.</p>
+        <span>SMART TRAVEL MANAGEMENT SYSTEM</span>
+    </footer>
+</body>
+</html>

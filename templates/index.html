@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderly | Smart Travel Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="brand"><span class="brand-icon">✳</span> wanderly<span class="brand-dot">.</span></a>
+
+        <div class="nav-links">
+            <a href="/" class="active">Home</a>
+            <a href="/planner">Plan a Trip</a>
+            <a href="/services">Explore Stays</a>
+            <a href="/bookings">My Bookings</a>
+        </div>
+
+        <a href="/planner" class="nav-button">Plan your trip <span>↗</span></a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="eyebrow"><span class="status-dot"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+
+                <h1>Travel far.<br>Feel <span>closer.</span></h1>
+
+                <p class="hero-description">
+                    Thoughtfully planned journeys, handpicked stays, and
+                    unforgettable experiences — all in one place.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="/planner" class="primary-button">Plan your journey <span>→</span></a>
+                    <a href="/services" class="secondary-button">Explore stays</a>
+                </div>
+
+                <div class="hero-note">
+                    <span>✦</span> Your journey, your way.
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div class="image-label">
+                        <span>✦ DESTINATION SPOTLIGHT</span>
+                        <strong>Somewhere beautiful.</strong>
+                    </div>
+                    <div class="image-credit">Find your next favourite place.</div>
+                </div>
+
+                <div class="floating-card floating-top">
+                    <span class="floating-icon">↗</span>
+                    <div><strong>Your next adventure</strong><small>Just a plan away</small></div>
+                </div>
+
+                <div class="floating-card floating-bottom">
+                    <div class="mini-avatar">✈</div>
+                    <div><strong>Made for you</strong><small>Trips that fit your style</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="planning-strip">
+            <div class="strip-item"><span>01</span><div><strong>Choose your destination</strong><small>Start with somewhere you love</small></div></div>
+            <div class="strip-item"><span>02</span><div><strong>Make it yours</strong><small>Set your budget and interests</small></div></div>
+            <div class="strip-item"><span>03</span><div><strong>Enjoy the journey</strong><small>Plan, book, and explore</small></div></div>
+        </section>
+
+        <section class="modules-section">
+            <div class="section-heading">
+                <div><span class="section-kicker">YOUR TRAVEL TOOLKIT</span><h2>Everything for a better getaway.</h2></div>
+                <p>From the first idea to the final booking, bring your whole journey together.</p>
+            </div>
+
+            <div class="module-grid">
+                <article class="module-card planner-card">
+                    <div class="module-number">MODULE 01 · PLAN</div>
+                    <div class="module-symbol">⌁</div>
+                    <h3>Your trip, your way.</h3>
+                    <p>Build a personalized itinerary around your destination, dates, budget, and interests.</p>
+                    <a href="/planner" class="module-link">Build your itinerary <span>↗</span></a>
+                </article>
+
+                <article class="module-card booking-card">
+                    <div class="module-number">MODULE 02 · BOOK</div>
+                    <div class="module-symbol">⌂</div>
+                    <h3>Stay somewhere special.</h3>
+                    <p>Explore sample stays and travel packages, compare prices, and manage your bookings.</p>
+                    <a href="/services" class="module-link">Explore travel stays <span>↗</span></a>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <a href="/" class="brand"><span class="brand-icon">✳</span> wanderly<span class="brand-dot">.</span></a>
+            <p>Made for the journeys that stay with you.</p>
+            <span>SMART TRAVEL MANAGEMENT SYSTEM</span>
+        </footer>
+    </main>
+</body>
+</html>
